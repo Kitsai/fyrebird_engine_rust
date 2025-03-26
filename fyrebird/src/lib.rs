@@ -1,6 +1,7 @@
 pub mod arith;
 pub mod behavior;
 pub mod collision;
+pub mod components;
 pub mod event;
 pub mod game;
 pub mod physics;

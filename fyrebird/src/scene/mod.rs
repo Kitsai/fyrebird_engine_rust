@@ -1,11 +1,9 @@
-use std::result;
-
 use anyhow::Result;
 use specs::{
     Builder, Component, Entity, EntityBuilder, World, WorldExt, storage::GenericWriteStorage,
 };
 
-use crate::{game::GameEngine, time::Time};
+use crate::{components::Transform2D, game::GameEngine, time::Time};
 
 #[derive(Debug)]
 pub struct TimeRef<'a>(&'a Time);
@@ -26,11 +24,14 @@ impl Scene {
     }
 
     pub fn add_entity(&mut self) -> Entity {
-        self.world.create_entity().build()
+        self.world
+            .create_entity()
+            .with(Transform2D::default())
+            .build()
     }
 
     pub fn add_entity_with(&mut self) -> EntityBuilder {
-        self.world.create_entity()
+        self.world.create_entity().with(Transform2D::default())
     }
 
     pub fn add_component<C: Component>(&mut self, entity: Entity, comp: C) -> Result<()> {

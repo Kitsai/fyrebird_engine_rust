@@ -43,7 +43,13 @@ pub const fn vec3_int(x: i32, y: i32, z: i32) -> Vec3Int {
 }
 
 pub type Point2 = cgmath::Point2<f32>;
+pub const fn point2(x: f32, y: f32) -> Point2 {
+    Point2 { x, y }
+}
 pub type Point3 = cgmath::Point3<f32>;
+pub const fn point3(x: f32, y: f32, z: f32) -> Point3 {
+    Point3 { x, y, z }
+}
 
 pub type Point2Int = cgmath::Point2<i32>;
 pub type Point3Int = cgmath::Point3<i32>;

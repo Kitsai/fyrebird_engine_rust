@@ -2,6 +2,8 @@ use specs::{Dispatcher, DispatcherBuilder};
 
 use crate::{
     behavior::BehaviorSystem,
+    collision::CollisionSystem,
+    physics::Physics2DSystem,
     scene::Scene,
     time::Time,
     window::{Window, WindowBuilder},
@@ -35,7 +37,10 @@ impl GameEngine<'_> {
 
 impl Default for GameEngine<'_> {
     fn default() -> Self {
-        let dispatcher = DispatcherBuilder::new().with(BehaviorSystem, "behaviors", &["physics"]);
+        let dispatcher = DispatcherBuilder::new()
+            .with(CollisionSystem, "collision", &[])
+            .with(Physics2DSystem, "physics", &["collision"])
+            .with(BehaviorSystem, "behaviors", &["physics"]);
 
         Self {
             time: Time::default(),
