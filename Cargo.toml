@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "demos",
+    "fyrebird", "fyrebird-cli",
+]
+resolver = "2"
+default = "fyrebird"
