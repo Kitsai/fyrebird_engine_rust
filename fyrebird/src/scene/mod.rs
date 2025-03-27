@@ -9,7 +9,7 @@ use crate::{components::Transform2D, game::GameEngine, time::Time};
 pub struct TimeRef<'a>(&'a Time);
 
 pub struct Scene {
-    world: World,
+    pub world: World,
 }
 
 impl Scene {
